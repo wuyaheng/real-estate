@@ -15,7 +15,7 @@ const REAL_CONFIG = {
 
 
 let data = [];
-const limit = 1;
+const limit = 5;
 let requestResolved = 0;
 
 getData()
