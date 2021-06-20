@@ -37,8 +37,7 @@ export default (props) => {
           currency: 'USD',
           minimumFractionDigits: 0,
           maximumFractionDigits: 0
-        }) + '<br/><b>Property Type: </b>' + convertUndefined(pin.propertyType) + 
-        '<br/><b>Square Footage: </b>' + convertUndefined(pin.squareFootage) + '<br/><b>Bedrooms: </b>' + convertUndefined(pin.bedrooms) + '<br/><b>Bathrooms: </b>' + convertUndefined(pin.bathrooms) +
+        }) + '<br/><b>Square Footage: </b>' + convertUndefined(pin.squareFootage) + '<br/><b>Bedrooms: </b>' + convertUndefined(pin.bedrooms) + '<br/><b>Bathrooms: </b>' + convertUndefined(pin.bathrooms) +
         '<br/><b>Listed Date: </b>' + moment(pin.listedDate).format('l') + '<br/><b>LastSeen: </b>' + moment(pin.lastSeen).format('l')) 
       );
     }

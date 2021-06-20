@@ -5,7 +5,7 @@ import propertiesData from "./data.json";
 import SearchForm from "./components/SearchForm/index";
 import PriceChart from "./components/PriceChart/index"; 
 import DaysOnMarketChart from "./components/DaysOnMarketChart/index"; 
-
+import Table from "./components/Table/index";
 
 
 class App extends Component {
@@ -60,6 +60,12 @@ componentDidMount() {
               </div>
             </div>
         </div>
+
+        <div className="row mt-2 mb-0"> 
+        <Table results={this.state.properties} />
+        
+        </div>
+
         <div className="row justify-content-end mt-0 pt-0">
           <p className="mr-4">Data Source: <a target="_blank" rel="noopener noreferrer" aria-label="Realty Mole Property API" href="https://rapidapi.com/realtymole/api/realty-mole-property-api/details">Realty Mole Property API </a></p>
         </div>
