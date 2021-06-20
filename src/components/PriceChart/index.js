@@ -32,7 +32,7 @@ function PriceChart(props) {
               display: true,
               text: 'Property Count',
               font: {
-                size: 12,
+                size: 11,
                 weight: 'bold',
                 lineHeight: 1
               }

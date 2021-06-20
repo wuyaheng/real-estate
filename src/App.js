@@ -2,8 +2,10 @@ import React, { Component } from 'react';
 import MapBox from "./components/MapBox/index"
 import './App.css';
 import propertiesData from "./data.json";
+import SearchForm from "./components/SearchForm/index";
 import PriceChart from "./components/PriceChart/index"; 
 import DaysOnMarketChart from "./components/DaysOnMarketChart/index"; 
+
 
 
 class App extends Component {
@@ -18,7 +20,7 @@ componentDidMount() {
 
   fetchProperties = () => {
     this.setState({
-      properties: propertiesData
+      properties: propertiesData.slice(0, 50)
     });
 } 
 
@@ -39,6 +41,11 @@ componentDidMount() {
       <div className="row mt-2 mb-0"> 
 
         <div className="col-md-5 mb-0 pb-0">
+        <div className="card mb-0 pb-0">
+
+            <SearchForm results={this.state.properties}/> 
+
+          </div>
           <div className="card mb-0 pb-0">
             <PriceChart results={this.state.properties} /> 
           </div>
