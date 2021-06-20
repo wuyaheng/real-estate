@@ -7,9 +7,14 @@ function DaysOnMarketChart(props) {
     const obj = {};
 
       let options = {
-        legend: {
-          display: true,
-          text: 'Price'
+        plugins: {
+          legend: {
+              display: false
+          },
+          title: {
+            display: true,
+            text: 'Days on Market',
+          }
         },
         responsive: true,
         maintainAspectRatio: false,
@@ -17,26 +22,18 @@ function DaysOnMarketChart(props) {
           display: true,
           text: 'Property Price'
        },
-        scales: {
-          xAxes: [
-            {
-              gridLines: {
-                display: false
-              },
-              ticks: {
-                display: true
-              }
-            }
-          ],
-          yAxes: [{
-            ticks: {
-              display: true
-            },
-            gridLines: {
-              display: false
-            }
-        }]
+       scales: {
+        x: {
+          grid: {
+            display: false
+          }
+        },
+        y: {
+          grid: {
+            display: false
+          }
         }
+      }
       };
 
     props.results.forEach((ele) => {
@@ -48,12 +45,16 @@ function DaysOnMarketChart(props) {
           obj[key] = 1;
         }
     });
+    // obj is an object {"100": 2}
+    // Object.entries [["100", 2]]
+    // when we map, we turn it back to [[100, 2]]
+    // when we sort, we can compare the numbers
+    let entries = Object.entries(obj).map(e => [Number(e[0]),e[1]]).sort((a, b) => (a[0] > b[0] ? 1 : -1)) || [];
 
-    let entries = Object.entries(obj).sort((a, b) => (a[0] > b[0] ? 1 : -1)) || [];
      return (
         <Bar
           data={{
-            labels: entries.map((x) => x[0]),
+            labels: entries.map((x) => x[0] + ' days'),
             datasets: [
               {
                 data: entries.map((x) => x[1]), 
@@ -63,7 +64,7 @@ function DaysOnMarketChart(props) {
             ],
           }}
           options={options} 
-          height={300}
+          height={280}
         />
       );
 

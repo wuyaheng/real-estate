@@ -32,14 +32,14 @@ export default (props) => {
     
       props.pins.forEach((pin) =>
         L.marker([pin.latitude, pin.longitude]).addTo(mymap).bindTooltip('<b>Address: </b>'+ pin.formattedAddress + 
-        '<br/>' + '<b>Days on Market: </b>' + pin.daysOnMarket + '<br/>' + '<b>Price: </b>' + (pin.price).toLocaleString('en-US', {
+        '<br/><b>Days on Market: </b>' + pin.daysOnMarket + '<br/><b>Price: </b>' + (pin.price).toLocaleString('en-US', {
           style: 'currency',
           currency: 'USD',
           minimumFractionDigits: 0,
           maximumFractionDigits: 0
-        }) + '<br/>' + '<b>Property Type: </b>' + convertUndefined(pin.propertyType) + 
-        '<br/>' + '<b>Square Footage: </b>' + convertUndefined(pin.squareFootage) + '<br/>' + '<b>Bedrooms: </b>' + convertUndefined(pin.bedrooms) + '<br/>' + '<b>Bathrooms: </b>' + convertUndefined(pin.bathrooms) +
-        '<br/>' + '<b>Listed Date: </b>' + moment(pin.listedDate).format('l') + '<br/>' + '<b>LastSeen: </b>' + moment(pin.lastSeen).format('l')) 
+        }) + '<br/><b>Property Type: </b>' + convertUndefined(pin.propertyType) + 
+        '<br/><b>Square Footage: </b>' + convertUndefined(pin.squareFootage) + '<br/><b>Bedrooms: </b>' + convertUndefined(pin.bedrooms) + '<br/><b>Bathrooms: </b>' + convertUndefined(pin.bathrooms) +
+        '<br/><b>Listed Date: </b>' + moment(pin.listedDate).format('l') + '<br/><b>LastSeen: </b>' + moment(pin.lastSeen).format('l')) 
       );
     }
 

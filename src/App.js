@@ -25,6 +25,7 @@ componentDidMount() {
 
 
   render() {
+    console.log(this.state.properties)
     return (
       <>
 

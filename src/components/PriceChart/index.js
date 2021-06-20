@@ -7,35 +7,28 @@ function PriceChart(props) {
     const obj = {};
 
       let options = {
-        legend: {
-          display: true,
-          text: 'Price'
-        },
         responsive: true,
         maintainAspectRatio: false,
-        title: {
-          display: true,
-          text: 'Property Price'
-       },
+        plugins: {
+          legend: {
+              display: false
+          },
+          title: {
+            display: true,
+            text: 'Property Price',
+          }
+        },
         scales: {
-          xAxes: [
-            {
-              gridLines: {
-                display: false
-              },
-              ticks: {
-                display: true
-              }
-            }
-          ],
-          yAxes: [{
-            ticks: {
-              display: true
-            },
-            gridLines: {
+          x: {
+            grid: {
               display: false
             }
-        }]
+          },
+          y: {
+            grid: {
+              display: false
+            }
+          }
         }
       };
 
@@ -49,11 +42,11 @@ function PriceChart(props) {
         }
     });
 
-    let entries = Object.entries(obj).sort((a, b) => (a[0] > b[0] ? 1 : -1)) || [];
+    let entries = Object.entries(obj).map(e => [Number(e[0]),e[1]]).sort((a, b) => (a[0] > b[0] ? 1 : -1)) || [];
      return (
         <Line
           data={{
-            labels: entries.map((x) => x[0]),
+            labels: entries.map((x) => x[0].toLocaleString("en-US", { style: "currency", currency: "USD", minimumFractionDigits: 0, maximumFractionDigits: 0})),
             datasets: [
               {
                 data: entries.map((x) => x[1]), 
@@ -63,7 +56,7 @@ function PriceChart(props) {
             ],
           }}
           options={options} 
-          height={300}
+          height={280}
         />
       );
 
