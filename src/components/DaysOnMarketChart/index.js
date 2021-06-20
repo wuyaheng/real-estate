@@ -31,6 +31,15 @@ function DaysOnMarketChart(props) {
         y: {
           grid: {
             display: false
+          },
+          title: {
+            display: true,
+            text: 'Property Count',
+            font: {
+              size: 12,
+              weight: 'bold',
+              lineHeight: 1
+            }
           }
         }
       }
