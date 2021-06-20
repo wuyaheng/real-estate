@@ -2,6 +2,8 @@ import React, { Component } from 'react';
 import MapBox from "./components/MapBox/index"
 import './App.css';
 import propertiesData from "./data.json";
+import PriceChart from "./components/PriceChart/index"; 
+import DaysOnMarketChart from "./components/DaysOnMarketChart/index"; 
 
 
 class App extends Component {
@@ -34,7 +36,17 @@ componentDidMount() {
       <div className="container-fluid">
 
       <div className="row mt-2 mb-0"> 
-          <div className="col-md-12 mb-0 pb-0">
+
+        <div className="col-md-5 mb-0 pb-0">
+          <div className="card mb-0 pb-0">
+            <PriceChart results={this.state.properties} /> 
+          </div>
+          <div className="card mb-0 pb-0">
+            <DaysOnMarketChart results={this.state.properties} /> 
+          </div>
+        </div>
+
+          <div className="col-md-7 mb-0 pb-0">
               <div className="card mb-0 pb-0">
                 <MapBox results={this.state.properties} /> 
               </div>
