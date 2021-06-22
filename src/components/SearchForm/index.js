@@ -1,8 +1,8 @@
 import React from "react";
 
-function SearchForm({ handleChange }) {
+function SearchForm({ handleChange, handleSubmit }) {
     return (
-        <form className="d-flex justify-content-center">
+        <form className="d-flex justify-content-center" onSubmit={handleSubmit}>
         <div className="form-row align-items-center">
             <div className="col-auto">
             <input type="text" className="form-control" id="inlineFormInput" placeholder="Min Price" name="sel_min" onChange={handleChange}/>

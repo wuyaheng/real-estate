@@ -21,9 +21,18 @@ componentDidMount() {
     }
 
   fetchProperties = () => {
-    this.setState({
-      properties: propertiesData.slice(0, 50)
-    });
+    if ((this.state.sel_min==="") && (this.state.sel_max==="")) {
+      this.setState({
+        properties: propertiesData.slice(0,50)
+      });
+    } else {
+      let filteredProperties = propertiesData.slice(0,50).filter(ele => { 
+        return Number(ele.price) >= this.state.sel_min && Number(ele.price <= this.state.sel_max)
+      })
+      this.setState({
+        properties: filteredProperties
+      });
+    }
 } 
 
 
@@ -31,6 +40,11 @@ componentDidMount() {
     this.setState({
       [event.target.name]: event.target.value
     });
+  }
+
+  handleSubmit = (event) => {
+    event.preventDefault()
+    this.fetchProperties()
   }
 
 
@@ -52,7 +66,7 @@ componentDidMount() {
         <div className="col-md-5 m-0 p-1">
         <div className="card m-0 p-0 mb-1">
 
-            <SearchForm handleChange={this.handleChange}/> 
+            <SearchForm handleChange={this.handleChange} handleSubmit={this.handleSubmit}/> 
 
           </div>
           <div className="card m-0 p-0 mb-1"> 
