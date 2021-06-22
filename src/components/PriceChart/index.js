@@ -65,7 +65,7 @@ function PriceChart(props) {
             ],
           }}
           options={options} 
-          height={280}
+          height={250}
         />
       );
 

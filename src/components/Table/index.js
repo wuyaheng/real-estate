@@ -25,7 +25,8 @@ const Table = (props) => {
 
     let rowData = []
     props.results.map((ele, i) => rowData.push( 
-      {Address: ele.formattedAddress, 
+      {zipCode: ele.zipCode,
+      Address: ele.formattedAddress, 
       daysOnMarket: ele.daysOnMarket, 
       price:  ele.price,
       squareFootage: ele.squareFootage }
@@ -33,7 +34,15 @@ const Table = (props) => {
 
 
     let columnDefs = [
-      {
+        {
+            field: 'zipCode',
+            headerName: 'zipCode',
+            cellRenderer: function(params) {
+              return params.data.zipCode;
+            },
+            flex: 1,
+          },
+         {
         field: 'Address',
         headerName: 'Address',
         cellRenderer: function(params) {
@@ -73,6 +82,7 @@ const Table = (props) => {
                 defaultColDef={defaultColDef}
                 columnDefs={columnDefs}
                 > 
+                <AgGridColumn field="zipCode" sortable={true}></AgGridColumn>
                 <AgGridColumn field="Address"></AgGridColumn>
                 <AgGridColumn field="daysOnMarket" sortable={true}></AgGridColumn>
                 <AgGridColumn field="price" sortable={true}></AgGridColumn>
@@ -83,4 +93,3 @@ const Table = (props) => {
 };
 
 export default Table;
-
