@@ -37,13 +37,14 @@ componentDidMount() {
 
 
   handleChange = (event) => {
+    event.preventDefault();
     this.setState({
       [event.target.name]: event.target.value
     });
   }
 
   handleSubmit = (event) => {
-    event.preventDefault()
+    event.preventDefault();
     this.fetchProperties()
   }
 

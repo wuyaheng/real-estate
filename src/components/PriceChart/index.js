@@ -25,6 +25,8 @@ function PriceChart(props) {
             }
           },
           y: {
+            beginAtZero: true,
+            stepSize: 1,
             grid: {
               display: false
             },
