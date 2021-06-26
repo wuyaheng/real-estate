@@ -55,7 +55,6 @@ componentDidMount() {
 
 
   render() {
-    console.log(this.state.properties)
     return (
       <>
 
@@ -69,7 +68,7 @@ componentDidMount() {
       <div className="row mt-2 mb-0"> 
 
         <div className="col-md-5 m-0 p-1">
-        <div className="card m-0 p-0 mb-1">
+        <div className="m-0 p-0 mb-2">
 
             <SearchForm handleChange={this.handleChange} handleSubmit={this.handleSubmit}/> 
 
