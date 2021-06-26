@@ -5,10 +5,10 @@ function SearchForm({ handleChange, handleSubmit }) {
         <form className="d-flex justify-content-center" onSubmit={handleSubmit}>
         <div className="form-row align-items-center">
             <div className="col-auto">
-            <input type="text" className="form-control" id="inlineFormInput" placeholder="Min Price" name="sel_min" onChange={handleChange}/>
+            <input type="text" className="form-control mt-2" id="inlineFormInput" placeholder="Min Price" name="sel_min" onChange={handleChange}/>
             </div>
             <div className="col-auto">
-                <input type="text" className="form-control" id="inlineFormInputGroup" placeholder="Max Price" name="sel_max" onChange={handleChange}/>
+                <input type="text" className="form-control mt-2" id="inlineFormInputGroup" placeholder="Max Price" name="sel_max" onChange={handleChange}/>
             </div>
             <div className="col-auto">
             <button type="submit" className="btn">Done</button>

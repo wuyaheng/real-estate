@@ -46,6 +46,10 @@ componentDidMount() {
   handleSubmit = (event) => {
     event.preventDefault();
     this.fetchProperties()
+    this.setState({
+      sel_min: "",
+      sel_max: "",
+    });
   }
 
 

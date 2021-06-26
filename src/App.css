@@ -38,6 +38,11 @@ nav {
   background-color: #3f88c5 !important;
 }
 
+.btn:focus {
+  box-shadow: none !important;
+  color: white;
+}
+
 input, .form-control:focus {
   color: #3f88c5 !important;
   border-bottom: 1px solid #3f88c5 !important;
