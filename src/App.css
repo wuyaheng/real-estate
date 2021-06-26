@@ -54,6 +54,10 @@ input, .form-control:focus {
   box-shadow: none !important;
 }
 
+input {
+  height: 2.4rem !important;
+}
+
 #mapid { 
   height: 88vh; 
 }

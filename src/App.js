@@ -55,14 +55,13 @@ componentDidMount() {
 
 
   render() {
+    console.log(this.state.properties)
     return (
       <>
 
         <nav className="nav-wrapper">
           <p className="center projectTitle p-0 text-white">NY Real Estate Properties</p>
         </nav>
-  
-   
       <div className="container-fluid">
 
       <div className="row mt-2 mb-0"> 
@@ -88,7 +87,7 @@ componentDidMount() {
             </div>
         </div>
 
-        <div className="row mt-2 p-1"> 
+        <div className="row mt-2 p-1 mb-1"> 
         <Table results={this.state.properties} />
 
         </div>
