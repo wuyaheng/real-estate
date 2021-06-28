@@ -19,7 +19,7 @@ const generateRealConfig = (page) => {
 
 
 let data = [];
-const limit = 50;
+const limit = 60;
 let requestResolved = 0;
 
 getData()
@@ -29,11 +29,13 @@ function getData() {
         res => {
             data = [...data, ...res.data]
             requestResolved++ 
+            console.log(requestResolved)
             if (requestResolved > limit || res.data.length === 0) {
+                console.log("saving data")
                 let dataString = JSON.stringify(data);
                 fs.writeFileSync(FILE_DESTINATION, dataString);
             } else {
-                getData()
+                setTimeout(getData, 500)
             }
         }
     ).catch(err => {

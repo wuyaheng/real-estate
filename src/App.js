@@ -10,24 +10,25 @@ import Table from "./components/Table/index";
 
 class App extends Component {
   state = {
-    sel_min: "",
-    sel_max: "",
     properties: []
   }
 
 
 componentDidMount() {
-      this.fetchProperties()
+      this.fetchProperties("","")
     }
 
-  fetchProperties = () => {
-    if ((this.state.sel_min==="") && (this.state.sel_max==="")) {
+  fetchProperties = (min, max) => {
+    if ((min==="") && (max==="")) {
+      let filteredProperties = propertiesData.filter(ele => { 
+        return Number(ele.price) >= 120000
+      })
       this.setState({
-        properties: propertiesData.slice(0,50)
+        properties: filteredProperties
       });
     } else {
-      let filteredProperties = propertiesData.slice(0,50).filter(ele => { 
-        return Number(ele.price) >= this.state.sel_min && Number(ele.price <= this.state.sel_max)
+      let filteredProperties = propertiesData.filter(ele => { 
+        return Number(ele.price) >= min && Number(ele.price <= max)
       })
       this.setState({
         properties: filteredProperties
@@ -36,20 +37,14 @@ componentDidMount() {
 } 
 
 
-  handleChange = (event) => {
-    event.preventDefault();
-    this.setState({
-      [event.target.name]: event.target.value
-    });
-  }
 
   handleSubmit = (event) => {
     event.preventDefault();
-    this.fetchProperties()
-    this.setState({
-      sel_min: "",
-      sel_max: "",
-    });
+    const data = new FormData(event.target);
+    const min = data.get("sel_min")
+    const max = data.get("sel_max")
+
+    this.fetchProperties(min, max)
   }
 
 
@@ -69,7 +64,7 @@ componentDidMount() {
         <div className="col-md-5 m-0 p-1">
         <div className="m-0 p-0 mb-2">
 
-            <SearchForm handleChange={this.handleChange} handleSubmit={this.handleSubmit}/> 
+            <SearchForm handleSubmit={this.handleSubmit}/> 
 
           </div>
           <div className="card m-0 p-0 mb-1"> 
